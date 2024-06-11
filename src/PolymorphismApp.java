@@ -11,11 +11,20 @@ public class PolymorphismApp {
         employee = new VicePresident("Mei");
         employee.sayHello("Uti");
 
+        // type check & Casts
         sayHello(new Employee("Putri"));
-        sayHello(new Manager("Putri"));
-        sayHello(new VicePresident("Putri"));
+        sayHello(new Manager("Meilinia"));
+        sayHello(new VicePresident("Mawaddah"));
     }
     static void sayHello(Employee employee){
-        System.out.println("Hello "+employee.name);
+        if(employee instanceof VicePresident){
+            System.out.println("Hello VP "+employee.name);
+        }
+        else if(employee instanceof Manager){
+            System.out.println("Hello Manager "+employee.name);
+        }
+        else{
+            System.out.println("Hello Employee "+employee.name);
+        }
     }
 }
